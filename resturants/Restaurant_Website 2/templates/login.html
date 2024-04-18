@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Set User ID</h2>
+        <form action="{{ url_for('set_user') }}" method="post">
+            <div class="mb-3">
+                <label for="user_id" class="form-label">User ID</label>
+                <input type="number" class="form-control" id="user_id" name="user_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Set User ID</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurants</h1>
+        <a href="{{ url_for('favorites') }}" class="btn btn-info mb-3">View Favorites</a>
+        <div class="list-group">
+            {% for restaurant in restaurants %}
+            <a href="{{ url_for('menu', restaurant_id=restaurant.id) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                {{ restaurant.name }}
+                <span class="badge bg-primary rounded-pill">{{ restaurant.menu_items.count() }}</span>
+            </a>
+            {% else %}
+            <div class="alert alert-warning" role="alert">
+                No restaurants found.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
